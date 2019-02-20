@@ -24,7 +24,7 @@ for i in range(1,sheet.nrows):
         ratings[sheet.cell_value(i,1)] = [[int(sheet.cell_value(i,0)),sheet.cell_value(i,2)]]
         movieid = sheet.cell_value(i,1)
 
-servers = ["Server2","Server3"]
+servers = ["Server2","Server1"]
 @Pyro4.expose
 class functions(object):
     def getReview(self,movie):
@@ -83,7 +83,7 @@ class functions(object):
 daemon = Pyro4.Daemon()
 ns = Pyro4.locateNS()
 uri = daemon.register(functions)
-ns.register("Server1" , uri)
+ns.register("Server3" , uri)
 
 
 print("ready")

@@ -42,22 +42,23 @@ def checkId(value):
     
 def get():
     movie = getMovie()
-    Function = Pyro4.Proxy("PYRONAME:server.movies")
-    print(Function.getReview(movie))
+    Function = Pyro4.Proxy("PYRONAME:frontServer")
+    print(Function.chooseServer("get",None,movie,None))
     
 def add():
     userId = getId()
     movie = getMovie()
     review = getReview()
-    Function = Pyro4.Proxy("PYRONAME:server.movies")
-    print(Function.addReview(userId,movie,review))
+    Function = Pyro4.Proxy("PYRONAME:frontServer")
+    print(Function.chooseServer("add",userId,movie,review))
     
 def update():
     userId = getId()
     movie = getMovie()
     review = getReview()
-    Function = Pyro4.Proxy("PYRONAME:server.movies")
-    print(Function.updateReview(userId,movie,review))
+    Function = Pyro4.Proxy("PYRONAME:frontServer")
+    print(Function.chooseServer("update",userId,movie,review))
+
 run = True
 while run:
     request = input("1 = get reviews, 2 = add review, 3 = update review, quit to close")
