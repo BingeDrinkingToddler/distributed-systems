@@ -1,8 +1,8 @@
 import Pyro4
 import xlrd
 
-#servers = ["Server1","Server2","Server3"]
-servers = ["Server1"]
+servers = ["Server1","Server2","Server3"]
+#servers = ["Server1"]
 
 @Pyro4.expose
 class functions(object):
