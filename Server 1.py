@@ -30,7 +30,7 @@ for i in range(1,sheet.nrows):
         movieid = sheet.cell_value(i,1)
 
 #list of other servers
-servers = ["Server2","Server1"]
+servers = ["Server2","Server3"]
 
 #function
 #add review called by self
@@ -158,7 +158,7 @@ class functions(object):
 daemon = Pyro4.Daemon()
 ns = Pyro4.locateNS()
 uri = daemon.register(functions)
-ns.register("Server3" , uri)
+ns.register("Server1" , uri)
 
 
 print("ready")
